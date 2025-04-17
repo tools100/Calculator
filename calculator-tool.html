@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tools including calculator, to-do list, and color picker. All tools work in your browser with no installation needed.">
+    <meta name="keywords" content="online tools, calculator, to-do list, color picker, web tools, free tools">
+    <meta name="author" content="Your Name or Company">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="Free Online Tools - Calculator, To-Do List & Color Picker">
+    <meta property="og:description" content="Collection of free browser-based tools including calculator, to-do list, and color picker.">
+    <meta property="og:image" content="https://yourwebsite.com/images/tools-preview.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Tools - Calculator, To-Do List & Color Picker">
+    <meta name="twitter:description" content="Collection of free browser-based tools including calculator, to-do list, and color picker.">
+    <meta name="twitter:image" content="https://yourwebsite.com/images/tools-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com/" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Tools Collection",
+      "url": "https://yourwebsite.com/",
+      "description": "Collection of free browser-based tools including calculator, to-do list, and color picker.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <title>Free Online Tools - Calculator, To-Do List & Color Picker</title>
+    
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3f7;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Navigation Tabs */
+        .tab-container {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style: none;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            background-color: rgba(74, 111, 165, 0.05);
+        }
+        
+        /* Tool Containers */
+        .tool-content {
+            display: none;
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .tool-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        /* Calculator Styles */
+        .calculator {
+            max-width: 320px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+        }
+        
+        .calculator-display {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: right;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: #f8f9fa;
+        }
+        
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .calc-btn {
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            background: var(--light-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .calc-btn:hover {
+            background: #e9ecef;
+        }
+        
+        .calc-btn.operator {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .calc-btn.operator:hover {
+            background: #3da8d8;
+        }
+        
+        .calc-btn.equals {
+            background: var(--success-color);
+            color: white;
+            grid-column: span 2;
+        }
+        
+        .calc-btn.equals:hover {
+            background: #218838;
+        }
+        
+        .calc-btn.clear {
+            background: var(--danger-color);
+            color: white;
+        }
+        
+        .calc-btn.clear:hover {
+            background: #c82333;
+        }
+        
+        /* To-Do List Styles */
+        .todo-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .todo-input-container {
+            display: flex;
+            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+        }
+        
+        .todo-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        .add-todo {
+            padding: 0.75rem 1.5rem;
+            background: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .add-todo:hover {
+            background: #218838;
+        }
+        
+        .todo-list {
+            list-style: none;
+        }
+        
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .todo-item:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .delete-todo {
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .delete-todo:hover {
+            background: #c82333;
+        }
+        
+        /* Color Picker Styles */
+        .color-picker-container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .color-preview {
+            width: 200px;
+            height: 200px;
+            margin: 1.5rem auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid #ddd;
+        }
+        
+        .color-value {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        
+        /* Ad Containers */
+        .ad-container {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            background: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                padding: 0.75rem;
+                border-bottom: 1px solid #ddd;
+                border-right: none;
+            }
+            
+            .tab.active {
+                border-bottom: 1px solid #ddd;
+                border-right: 3px solid var(--primary-color);
+            }
+            
+            .tool-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .calculator-buttons {
+                gap: 0.5rem;
+            }
+            
+            .calc-btn {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Online Tools Collection</h1>
+            <p class="subtitle">Free browser-based tools for your daily needs</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+                crossorigin="anonymous"></script>
+            <!-- ToolsTopBanner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <ul class="tabs">
+                <li class="tab active" data-tab="calculator">Calculator</li>
+                <li class="tab" data-tab="todo">To-Do List</li>
+                <li class="tab" data-tab="colorpicker">Color Picker</li>
+            </ul>
+            
+            <!-- Calculator Tool -->
+            <div id="calculator" class="tool-content active">
+                <h2>Calculator</h2>
+                <div class="calculator">
+                    <input type="text" class="calculator-display" id="calc-display" readonly>
+                    <div class="calculator-buttons">
+                        <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
+                        <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
+                        <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('/')">÷</button>
+                        <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
+                        <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
+                        <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
+                        <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
+                        <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
+                        <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
+                        <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
+                        <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
+                        <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
+                        <button class="calc-btn equals" onclick="calculate()">=</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- To-Do List Tool -->
+            <div id="todo" class="tool-content">
+                <h2>To-Do List</h2>
+                <div class="todo-container">
+                    <div class="todo-input-container">
+                        <input type="text" class="todo-input" id="todo-input" placeholder="Add a new task...">
+                        <button class="add-todo" id="add-todo">Add</button>
+                    </div>
+                    <ul class="todo-list" id="todo-list"></ul>
+                </div>
+            </div>
+            
+            <!-- Color Picker Tool -->
+            <div id="colorpicker" class="tool-content">
+                <h2>Color Picker</h2>
+                <div class="color-picker-container">
+                    <input type="color" id="color-picker" value="#4a6fa5">
+                    <div class="color-preview" id="color-preview"></div>
+                    <div class="color-value" id="color-value">#4a6fa5</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+                crossorigin="anonymous"></script>
+            <!-- ToolsMiddleBanner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
+                <a href="/about">About</a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Online Tools Collection. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const toolContents = document.querySelectorAll('.tool-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    toolContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+        
+        // Calculator functions
+        function appendToDisplay(value) {
+            document.getElementById('calc-display').value += value;
+        }
+        
+        function clearDisplay() {
+            document.getElementById('calc-display').value = '';
+        }
+        
+        function calculate() {
+            try {
+                let expression = document.getElementById('calc-display').value;
+                // Replace × and ÷ with * and / for evaluation
+                expression = expression.replace(/×/g, '*').replace(/÷/g, '/');
+                document.getElementById('calc-display').value = eval(expression);
+            } catch {
+                document.getElementById('calc-display').value = 'Error';
+            }
+        }
+        
+        // To-Do List functions
+        document.getElementById('add-todo').addEventListener('click', addTask);
+        document.getElementById('todo-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+        
+        function addTask() {
+            const input = document.getElementById('todo-input');
+            const task = input.value.trim();
+            
+            if (task) {
+                const todoList = document.getElementById('todo-list');
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                li.innerHTML = `
+                    <span>${task}</span>
+                    <button class="delete-todo" aria-label="Delete task">×</button>
+                `;
+                todoList.appendChild(li);
+                input.value = '';
+                
+                // Add event listener to delete button
+                li.querySelector('.delete-todo').addEventListener('click', function() {
+                    li.remove();
+                });
+            }
+        }
+        
+        // Color Picker functions
+        const colorPicker = document.getElementById('color-picker');
+        const colorPreview = document.getElementById('color-preview');
+        const colorValue = document.getElementById('color-value');
+        
+        colorPicker.addEventListener('input', function() {
+            const color = this.value;
+            colorPreview.style.backgroundColor = color;
+            colorValue.textContent = color;
+        });
+        
+        // Initialize color picker
+        colorPreview.style.backgroundColor = colorPicker.value;
+        
+        // Load AdSense ads
+        window.addEventListener('load', function() {
+            // Initialize ads
+            if (typeof adsbygoogle !== 'undefined') {
+                adsbygoogle.push({});
+            }
+        });
+    </script>
+</body>
+</html>
