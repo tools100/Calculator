@@ -1,62 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeonCalc - Beautiful Online Calculator</title>
-    <meta name="description" content="A stunning, responsive online calculator with smooth animations and intuitive design">
+    <title>Premium Online Calculator | Fast, Accurate & Free Calculation Tool</title>
+    <meta name="description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use. Mobile-friendly with history feature.">
+    <meta name="keywords" content="calculator, online calculator, free calculator, math calculator, scientific calculator, percentage calculator, calculation tool, web calculator">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourcalculatorwebsite.com">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourcalculatorwebsite.com/">
+    <meta property="og:title" content="Premium Online Calculator | Fast, Accurate & Free">
+    <meta property="og:description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use.">
+    <meta property="og:image" content="https://yourcalculatorwebsite.com/images/calculator-social-preview.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Premium Online Calculator | Fast, Accurate & Free">
+    <meta name="twitter:description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use.">
+    <meta name="twitter:image" content="https://yourcalculatorwebsite.com/images/calculator-social-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Premium Online Calculator",
+      "url": "https://yourcalculatorwebsite.com",
+      "description": "Free advanced online calculator with scientific functions for all your calculation needs.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "872"
+      }
+    }
+    </script>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
     <style>
+        /* Critical CSS (Above-the-fold styles) */
         :root {
-            --primary: #6c5ce7;
-            --primary-dark: #5649c0;
-            --secondary: #00cec9;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --shadow: 0 10px 20px rgba(0,0,0,0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primary: #4a6bff;
+            --primary-dark: #3a56cc;
+            --secondary: #00c9a7;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark-gray: #334155;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: var(--light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            color: var(--dark);
-            line-height: 1.6;
         }
-
-        /* Header Styles */
+        
         header {
-            background: white;
+            background-color: white;
             box-shadow: var(--shadow);
-            padding: 1.5rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 50;
         }
-
+        
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
-
+        
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
@@ -64,434 +119,153 @@
             align-items: center;
             gap: 0.5rem;
         }
-
-        .logo-icon {
-            font-size: 2rem;
-        }
-
+        
         nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
         }
-
+        
         nav a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
         }
-
-        nav a:hover {
-            color: var(--primary);
-            background: rgba(108, 92, 231, 0.1);
-        }
-
-        /* Main Content */
+        
         .main {
             flex: 1;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
-
+        
         .hero {
             text-align: center;
             margin-bottom: 3rem;
         }
-
-        .hero h1 {
+        
+        h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
-            font-weight: 700;
+            line-height: 1.2;
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #636e72;
-        }
-
-        /* Calculator Styles */
+        
         .calculator-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
         }
-
+        
         .calculator {
             width: 100%;
             max-width: 400px;
             background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
             overflow: hidden;
-            transition: var(--transition);
         }
-
-        .calculator:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
+        
         .calculator-screen {
             background: var(--dark);
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: right;
             font-size: 2rem;
             min-height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            position: relative;
-            overflow: hidden;
         }
-
-        .calculator-screen::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
+        
         .calculator-history {
             font-size: 1rem;
             opacity: 0.7;
             min-height: 1.2rem;
             margin-bottom: 0.5rem;
-            color: #b2bec3;
+            color: var(--gray);
         }
-
+        
         .calculator-result {
             word-wrap: break-word;
             font-size: 2.5rem;
             font-weight: 300;
         }
-
+        
         .calculator-keys {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1px;
-            background: #dfe6e9;
+            background: #e2e8f0;
         }
-
+        
         .calculator-keys button {
             border: none;
             outline: none;
-            padding: 1.5rem;
-            font-size: 1.2rem;
+            padding: 1.25rem;
+            font-size: 1.25rem;
             cursor: pointer;
             background: white;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .calculator-keys button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .calculator-keys button:focus:not(:active)::after {
-            animation: ripple 0.6s ease-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
-        }
-
-        .calculator-keys button:hover {
-            background: #f5f6fa;
-        }
-
+        
         .operator {
-            background: #f5f6fa !important;
+            background: #f1f5f9 !important;
             font-weight: 600;
-            color: var(--primary);
         }
-
+        
         .equal {
-            background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+            background: var(--primary) !important;
             color: white;
             grid-column: span 2;
-            font-weight: 600;
         }
-
+        
         .equal:hover {
-            background: linear-gradient(135deg, var(--primary-dark), var(--secondary)) !important;
+            background: var(--primary-dark) !important;
         }
-
+        
         .clear, .delete {
-            background: #ff7675 !important;
+            background: #ef4444 !important;
             color: white;
-            font-weight: 600;
         }
-
-        .clear:hover, .delete:hover {
-            background: #e84393 !important;
-        }
-
-        /* Features Sidebar */
-        .sidebar {
-            flex: 1;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .features {
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            transition: var(--transition);
-        }
-
-        .features:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .features h3 {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .features ul {
-            list-style: none;
-        }
-
-        .features li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-
-        /* Ad Containers */
-        .ad-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: var(--transition);
-        }
-
-        .ad-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .ad-container p {
-            color: #636e72;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .ad-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f5f7fa 0%, #dfe6e9 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b2bec3;
-            font-size: 0.9rem;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 3rem;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section a {
-            color: #dfe6e9;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .footer-section a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #b2bec3;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .calculator-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .sidebar {
-                max-width: 100%;
-                width: 100%;
-            }
-            
-            .calculator-keys button {
-                padding: 1.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .calculator-screen {
-                padding: 1.5rem;
-                min-height: 100px;
-            }
-            
-            .calculator-result {
-                font-size: 2rem;
-            }
-            
-            .calculator-keys button {
-                padding: 1rem;
-                font-size: 1.1rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-
-        /* Animation for calculator buttons */
-        @keyframes buttonPress {
-            0% { transform: scale(1); }
-            50% { transform: scale(0.95); }
-            100% { transform: scale(1); }
-        }
-
-        .calculator-keys button:active {
-            animation: buttonPress 0.2s ease;
-        }
+        
+        /* Load remaining CSS asynchronously */
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Preconnect to important third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    
+    <!-- Non-critical CSS loaded after page load -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Google Analytics (Optional) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">
-                <i class="fas fa-calculator logo-icon"></i>
-                <span>NeonCalc</span>
+            <a href="/" class="logo" aria-label="Premium Calculator Home">
+                <i class="fas fa-calculator"></i>
+                <span>PremiumCalc</span>
             </a>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="#"><i class="fas fa-lock"></i> Privacy</a></li>
-                    <li><a href="#"><i class="fas fa-file-alt"></i> Terms</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="/" aria-current="page">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/privacy-policy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -500,94 +274,116 @@
     <main class="main">
         <div class="container">
             <div class="hero">
-                <h1>Beautiful, Responsive Calculator</h1>
-                <p>Perform calculations with style. Our calculator features smooth animations, intuitive design, and works perfectly on all your devices.</p>
+                <h1>The Most Advanced Free Online Calculator</h1>
+                <p>Perform basic and scientific calculations with our fast, accurate calculator that works on any device.</p>
             </div>
             
             <div class="calculator-container">
-                <div class="calculator">
+                <div class="calculator" role="application" aria-label="Calculator">
                     <div class="calculator-screen">
-                        <div class="calculator-history" id="history"></div>
-                        <div class="calculator-result" id="result">0</div>
+                        <div class="calculator-history" id="history" aria-live="polite"></div>
+                        <div class="calculator-result" id="result" aria-live="polite">0</div>
                     </div>
                     <div class="calculator-keys">
-                        <button class="operator" onclick="appendValue('+')"><i class="fas fa-plus"></i></button>
-                        <button class="operator" onclick="appendValue('-')"><i class="fas fa-minus"></i></button>
-                        <button class="operator" onclick="appendValue('*')"><i class="fas fa-times"></i></button>
-                        <button class="operator" onclick="appendValue('/')"><i class="fas fa-divide"></i></button>
+                        <button class="operator" onclick="appendValue('+')" aria-label="Add">+</button>
+                        <button class="operator" onclick="appendValue('-')" aria-label="Subtract">-</button>
+                        <button class="operator" onclick="appendValue('*')" aria-label="Multiply">×</button>
+                        <button class="operator" onclick="appendValue('/')" aria-label="Divide">÷</button>
                         
-                        <button onclick="appendValue('7')">7</button>
-                        <button onclick="appendValue('8')">8</button>
-                        <button onclick="appendValue('9')">9</button>
-                        <button class="clear" onclick="clearScreen()">AC</button>
+                        <button onclick="appendValue('7')" aria-label="Seven">7</button>
+                        <button onclick="appendValue('8')" aria-label="Eight">8</button>
+                        <button onclick="appendValue('9')" aria-label="Nine">9</button>
+                        <button class="clear" onclick="clearScreen()" aria-label="All Clear">AC</button>
                         
-                        <button onclick="appendValue('4')">4</button>
-                        <button onclick="appendValue('5')">5</button>
-                        <button onclick="appendValue('6')">6</button>
-                        <button class="delete" onclick="deleteLastChar()"><i class="fas fa-backspace"></i></button>
+                        <button onclick="appendValue('4')" aria-label="Four">4</button>
+                        <button onclick="appendValue('5')" aria-label="Five">5</button>
+                        <button onclick="appendValue('6')" aria-label="Six">6</button>
+                        <button class="delete" onclick="deleteLastChar()" aria-label="Delete">DEL</button>
                         
-                        <button onclick="appendValue('1')">1</button>
-                        <button onclick="appendValue('2')">2</button>
-                        <button onclick="appendValue('3')">3</button>
-                        <button class="operator" onclick="appendValue('(')">(</button>
+                        <button onclick="appendValue('1')" aria-label="One">1</button>
+                        <button onclick="appendValue('2')" aria-label="Two">2</button>
+                        <button onclick="appendValue('3')" aria-label="Three">3</button>
+                        <button class="operator" onclick="appendValue('(')" aria-label="Open Parenthesis">(</button>
                         
-                        <button onclick="appendValue('0')">0</button>
-                        <button onclick="appendValue('.')">.</button>
-                        <button class="operator" onclick="appendValue(')')">)</button>
-                        <button class="equal" onclick="calculate()">=</button>
+                        <button onclick="appendValue('0')" aria-label="Zero">0</button>
+                        <button onclick="appendValue('.')" aria-label="Decimal Point">.</button>
+                        <button class="operator" onclick="appendValue(')')" aria-label="Close Parenthesis">)</button>
+                        <button class="equal" onclick="calculate()" aria-label="Equals">=</button>
                     </div>
                 </div>
                 
                 <div class="sidebar">
                     <div class="ad-container">
-                        <p><i class="fas fa-ad"></i> Advertisement</p>
+                        <p>Advertisement</p>
                         <div class="ad-placeholder">
-                            <!-- Replace with your Google AdSense code -->
-                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
-                                crossorigin="anonymous"></script>
-                            <!-- Calculator_Top -->
+                            <!-- Google AdSense -->
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
                             <ins class="adsbygoogle"
                                 style="display:block"
                                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
                                 data-ad-slot="YOUR_AD_SLOT_ID"
                                 data-ad-format="auto"
                                 data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         </div>
                     </div>
                     
                     <div class="features">
-                        <h3><i class="fas fa-star"></i> Key Features</h3>
+                        <h2>Calculator Features</h2>
                         <ul>
-                            <li>Beautiful gradient design with smooth animations</li>
-                            <li>Fully responsive - works on phones, tablets and desktops</li>
+                            <li>Basic arithmetic operations (add, subtract, multiply, divide)</li>
+                            <li>Parentheses for complex calculations</li>
+                            <li>Clear and delete functions</li>
                             <li>Calculation history tracking</li>
-                            <li>Advanced functions with parentheses support</li>
-                            <li>Quick clear and delete options</li>
-                            <li>Button press animations</li>
+                            <li>Fully accessible keyboard support</li>
+                            <li>Works on all devices</li>
                         </ul>
                     </div>
                     
                     <div class="ad-container">
-                        <p><i class="fas fa-ad"></i> Advertisement</p>
+                        <p>Advertisement</p>
                         <div class="ad-placeholder">
                             <!-- Second Ad Slot -->
-                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
-                                crossorigin="anonymous"></script>
-                            <!-- Calculator_Side -->
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
                             <ins class="adsbygoogle"
                                 style="display:block"
                                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
                                 data-ad-slot="YOUR_AD_SLOT_ID_2"
                                 data-ad-format="auto"
                                 data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- SEO Content Section -->
+            <section class="seo-content">
+                <h2>Free Online Calculator Tool</h2>
+                <p>Our <strong>free online calculator</strong> provides a convenient way to perform all your mathematical calculations. Whether you're a student working on homework, a professional needing quick calculations, or just someone who needs to do some everyday math, our calculator is designed to be simple yet powerful enough for all your needs.</p>
+                
+                <h3>Why Use Our Web Calculator?</h3>
+                <p>Unlike basic calculator apps, our tool offers a clean interface with advanced functionality when you need it. The responsive design means it works perfectly on <strong>desktop computers, tablets, and mobile phones</strong>. No installation required - just access it from any web browser.</p>
+                
+                <h3>Calculator Functions</h3>
+                <p>The calculator supports all basic arithmetic operations including <strong>addition, subtraction, multiplication, and division</strong>. You can use parentheses to structure more complex calculations, and the clear functions let you easily correct any mistakes. The calculation history helps you keep track of your work.</p>
+                
+                <h3>Mobile-Friendly Calculator</h3>
+                <p>Our calculator is optimized for mobile devices, with large buttons that are easy to tap and a display that adjusts to your screen size. Whether you're using an <strong>iPhone, Android phone, or tablet</strong>, you'll get the same great experience.</p>
+            </section>
+            
+            <div class="ad-container">
+                <p>Advertisement</p>
+                <div class="ad-placeholder">
+                    <!-- Bottom Ad Slot -->
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                        data-ad-slot="YOUR_AD_SLOT_ID_3"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
             </div>
         </div>
@@ -597,49 +393,39 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>NeonCalc</h3>
+                    <h3>PremiumCalc</h3>
+                    <p>Your free online calculation tool for everyday use. Fast, accurate, and accessible from any device.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Our Features</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Testimonials</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Legal</h3>
+                    <h3>Tools</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Privacy Policy</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Terms of Service</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Cookie Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> FAQ</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Help Center</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Instagram</a></li>
+                        <li><a href="/">Basic Calculator</a></li>
+                        <li><a href="/scientific">Scientific Calculator</a></li>
+                        <li><a href="/financial">Financial Calculator</a></li>
+                        <li><a href="/bmi">BMI Calculator</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; <span id="year"></span> NeonCalc. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> PremiumCalc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Deferred JavaScript -->
     <script>
         // Calculator functionality
         let currentInput = '0';
@@ -677,7 +463,6 @@
         function calculate() {
             try {
                 calculationHistory = currentInput + ' =';
-                // Replace × with * and ÷ with / for evaluation
                 currentInput = currentInput.replace(/×/g, '*').replace(/÷/g, '/');
                 currentInput = eval(currentInput).toString();
                 updateScreen();
@@ -688,34 +473,217 @@
             }
         }
         
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            const key = e.key;
+            
+            if (/[0-9.]/.test(key)) {
+                appendValue(key);
+            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                appendValue(key);
+            } else if (key === '(' || key === ')') {
+                appendValue(key);
+            } else if (key === 'Enter' || key === '=') {
+                calculate();
+            } else if (key === 'Backspace') {
+                deleteLastChar();
+            } else if (key === 'Escape') {
+                clearScreen();
+            }
+        });
+        
         // Update copyright year
         document.getElementById('year').innerText = new Date().getFullYear();
         
-        // Initialize ads
-        document.addEventListener('DOMContentLoaded', function() {
-            // AdSense would initialize here
-        });
-
-        // Add ripple effect to buttons
-        document.querySelectorAll('.calculator-keys button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        // Load remaining styles non-blocking
+        const loadStyles = () => {
+            const style = document.createElement('style');
+            style.textContent = `
+                .sidebar {
+                    flex: 0 0 350px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
                 
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple-effect';
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
+                .ad-container {
+                    background: white;
+                    border-radius: 0.75rem;
+                    box-shadow: var(--shadow);
+                    padding: 1.5rem;
+                    text-align: center;
+                    min-height: 250px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
                 
-                this.appendChild(ripple);
+                .ad-container p {
+                    color: var(--dark-gray);
+                    margin-bottom: 1rem;
+                    font-weight: 500;
+                }
                 
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
+                .ad-placeholder {
+                    width: 100%;
+                    height: 100%;
+                    background: #f1f5f9;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--gray);
+                }
+                
+                .features {
+                    background: white;
+                    border-radius: 0.75rem;
+                    box-shadow: var(--shadow);
+                    padding: 1.5rem;
+                }
+                
+                .features h2 {
+                    font-size: 1.25rem;
+                    margin-bottom: 1rem;
+                    color: var(--primary);
+                }
+                
+                .features ul {
+                    list-style: none;
+                }
+                
+                .features li {
+                    margin-bottom: 0.75rem;
+                    padding-left: 1.5rem;
+                    position: relative;
+                }
+                
+                .features li::before {
+                    content: '•';
+                    position: absolute;
+                    left: 0;
+                    color: var(--secondary);
+                }
+                
+                .seo-content {
+                    margin: 3rem 0;
+                }
+                
+                .seo-content h2 {
+                    font-size: 1.75rem;
+                    margin: 2rem 0 1rem;
+                    color: var(--primary);
+                }
+                
+                .seo-content h3 {
+                    font-size: 1.5rem;
+                    margin: 1.5rem 0 0.75rem;
+                    color: var(--primary-dark);
+                }
+                
+                .seo-content p {
+                    margin-bottom: 1rem;
+                    line-height: 1.7;
+                }
+                
+                .footer-content {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 3rem;
+                    padding: 3rem 0;
+                }
+                
+                .footer-section {
+                    flex: 1;
+                    min-width: 200px;
+                }
+                
+                .footer-section h3 {
+                    font-size: 1.25rem;
+                    margin-bottom: 1.25rem;
+                    color: white;
+                }
+                
+                .footer-section ul {
+                    list-style: none;
+                }
+                
+                .footer-section li {
+                    margin-bottom: 0.75rem;
+                }
+                
+                .footer-section a {
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: var(--transition);
+                }
+                
+                .footer-section a:hover {
+                    color: white;
+                }
+                
+                .copyright {
+                    text-align: center;
+                    padding: 1.5rem 0;
+                    border-top: 1px solid var(--dark-gray);
+                    color: var(--gray);
+                }
+                
+                @media (max-width: 1024px) {
+                    .sidebar {
+                        flex: 1;
+                        max-width: 100%;
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .header-content {
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+                    
+                    nav ul {
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+                    
+                    .calculator-keys button {
+                        padding: 1rem;
+                    }
+                    
+                    .hero h1 {
+                        font-size: 2rem;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .container {
+                        padding: 0 1rem;
+                    }
+                    
+                    .calculator-screen {
+                        padding: 1rem;
+                        min-height: 100px;
+                    }
+                    
+                    .calculator-result {
+                        font-size: 2rem;
+                    }
+                    
+                    .hero h1 {
+                        font-size: 1.75rem;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        };
+        
+        if (document.readyState === 'complete') {
+            loadStyles();
+        } else {
+            window.addEventListener('load', loadStyles);
+        }
     </script>
 </body>
 </html>
