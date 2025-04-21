@@ -1,816 +1,234 @@
-# Complete Luxury Fortune Spending Website Code
-
-Here's the complete, combined code for your luxury spending website with all the improvements, including high-quality product images, SEO optimization, and Google AdSense integration:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spend A Luxury Fortune - Interactive Money Spending Simulator</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Experience what it's like to spend $10 billion on luxury items. Interactive spending simulator with high-end luxury products and experiences.">
-    <meta name="keywords" content="luxury spending, billionaire simulator, spend money game, luxury items, interactive game, wealth simulator">
-    <meta name="author" content="Your Name">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Spend A Luxury Fortune - Interactive Money Spending Simulator">
-    <meta property="og:description" content="Experience what it's like to spend $10 billion on luxury items. Interactive spending simulator.">
-    <meta property="og:image" content="images/luxury-preview.jpg">
-    <meta property="og:url" content="https://yourdomain.com/spend-luxury">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Spend A Luxury Fortune">
-    <meta name="twitter:description" content="Experience what it's like to spend $10 billion on luxury items.">
-    <meta name="twitter:image" content="images/luxury-preview.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
+// Luxury items data - expanded to 30+ items
+const luxuryItems = [
     {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Spend A Luxury Fortune",
-      "description": "Interactive simulator that lets you experience spending $10 billion on luxury items and experiences",
-      "applicationCategory": "GameApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-    
-    <!-- Image SEO -->
-    <script type="application/ld+json">
+        id: 1,
+        title: "Mega Yacht",
+        price: 300000000,
+        description: "300ft luxury yacht with helipad, submarine, and 20 guest suites",
+        image: "https://images.unsplash.com/photo-1518544866335-95a5acf173e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIweWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Product",
-            "name": "Private Island",
-            "image": "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "description": "Own your personal paradise in the Caribbean.",
-            "offers": {
-              "@type": "Offer",
-              "price": "45000000",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Product",
-            "name": "Superyacht",
-            "image": "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "description": "150-meter luxury yacht with helipad and submarine.",
-            "offers": {
-              "@type": "Offer",
-              "price": "275000000",
-              "priceCurrency": "USD"
-            }
-          }
-        }
-      ]
+        id: 2,
+        title: "Private Island",
+        price: 50000000,
+        description: "50-acre private island in the Caribbean with white sand beaches",
+        image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJpdmF0ZSUyMGlzbGFuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 3,
+        title: "Bugatti La Voiture Noire",
+        price: 18700000,
+        description: "The most expensive new car ever made - one of a kind hypercar",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QnVnYXR0aXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 4,
+        title: "Penthouse in Monaco",
+        price: 335000000,
+        description: "10,000 sq ft penthouse overlooking the Monaco Grand Prix circuit",
+        image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bHV4dXJ5JTIwcGVudGhvdXNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 5,
+        title: "Gulfstream G700",
+        price: 75000000,
+        description: "World's most luxurious private jet with 5,000 nautical mile range",
+        image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJpdmF0ZSUyMGpldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 6,
+        title: "Rolex GMT Master II",
+        price: 50000,
+        description: "Stainless steel 'Pepsi' bezel watch - a classic collector's item",
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9sZXh8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 7,
+        title: "Domaine de la Romanée-Conti",
+        price: 250000,
+        description: "Case of 12 bottles of the world's most exclusive wine",
+        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhwZW5zaXZlJTIwd2luZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 8,
+        title: "Van Gogh Painting",
+        price: 100000000,
+        description: "Original painting by Vincent Van Gogh",
+        image: "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwYXVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 9,
+        title: "Diamond Necklace",
+        price: 55000000,
+        description: "100-carat flawless diamond necklace from Harry Winston",
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXhwZW5zaXZlJTIwamV3ZWxyeXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 10,
+        title: "Super Bowl Ad",
+        price: 7000000,
+        description: "30-second commercial during the Super Bowl",
+        image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VwZXIlMjBib3dsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 11,
+        title: "Space Tourism Trip",
+        price: 55000000,
+        description: "Week-long space tourism experience with Virgin Galactic",
+        image: "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 12,
+        title: "NBA Team",
+        price: 2500000000,
+        description: "Purchase an NBA franchise (average valuation)",
+        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 13,
+        title: "Lamborghini Veneno",
+        price: 4500000,
+        description: "Limited edition hypercar with only 9 units ever made",
+        image: "https://images.unsplash.com/photo-1558981852-426c6c22a060?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TGFtYm9yZ2hpbml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 14,
+        title: "Château Margaux Wine Collection",
+        price: 1950000,
+        description: "Complete vertical collection (1900-2020) of this legendary Bordeaux wine",
+        image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXhwZW5zaXZlJTIwd2luZSUyMGNvbGxlY3Rpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 15,
+        title: "Patek Philippe Grandmaster Chime",
+        price: 31000000,
+        description: "The most complicated Patek Philippe wristwatch ever made",
+        image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGF0ZWslMjBQaGlsaXBwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 16,
+        title: "Bentley Mulliner Bacalar",
+        price: 1900000,
+        description: "Exclusive 12-cylinder, coach-built grand tourer (only 12 made)",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QnVnYXR0aXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 17,
+        title: "Michelangelo Sculpture",
+        price: 200000000,
+        description: "Original Renaissance sculpture by Michelangelo",
+        image: "https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWljaGVsYW5nZWxvJTIwc2N1bHB0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 18,
+        title: "Diamond-Encrusted iPhone",
+        price: 9500000,
+        description: "iPhone 14 Pro with solid gold body and 1,000+ diamonds",
+        image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZCUyMGlQaG9uZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 19,
+        title: "Personal Submarine",
+        price: 35000000,
+        description: "Luxury submarine with capacity for 8 people and 1,000m depth rating",
+        image: "https://images.unsplash.com/photo-1560272566-c9feec8d9d64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwc3VibWFyaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 20,
+        title: "Taj Mahal Replica",
+        price: 1000000000,
+        description: "Full-scale replica of the Taj Mahal as a private residence",
+        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VGFqJTIwTWVoYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 21,
+        title: "Diamond-Encrusted Pool Table",
+        price: 4500000,
+        description: "Solid gold pool table with 850 carats of diamonds",
+        image: "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwcG9vbCUyMHRhYmxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 22,
+        title: "Personal Concert by Beyoncé",
+        price: 2000000,
+        description: "Private 60-minute performance for you and your guests",
+        image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QmV5b25jJUMzJUE5fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 23,
+        title: "Solid Gold Toilet",
+        price: 2500000,
+        description: "18-karat gold fully functional toilet (like the one at Guggenheim)",
+        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29sZCUyMHRvaWxldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 24,
+        title: "Moonrock Fragment",
+        price: 10000000,
+        description: "Authentic lunar meteorite (0.5kg) collected by Apollo missions",
+        image: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9vbiUyMHJvY2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 25,
+        title: "Fabergé Egg",
+        price: 33000000,
+        description: "Imperial Fabergé egg created for Russian tsars",
+        image: "https://images.unsplash.com/photo-1584977900111-6b70b0a4ebae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RmFiZXJnJUMzJUE5JTIwZWdnfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 26,
+        title: "Diamond Football",
+        price: 2800000,
+        description: "Regulation-size football covered in 6,620 diamonds (2,500 carats)",
+        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGlhbW9uZCUyMGZvb3RiYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 27,
+        title: "Luxury Bunker",
+        price: 20000000,
+        description: "Underground doomsday shelter with 5 bedrooms, cinema and pool",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bHV4dXJ5JTIwYnVua2VyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 28,
+        title: "White Truffle",
+        price: 100000,
+        description: "1kg of rare Italian white Alba truffles (world's most expensive food)",
+        image: "https://images.unsplash.com/photo-1601579530181-0b0d1d5b0b4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjB0cnVmZmxlJTIwaXRhbHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 29,
+        title: "Diamond-Encrusted Chess Set",
+        price: 9800000,
+        description: "Chess set with pieces made from platinum and 1,500 diamonds",
+        image: "https://images.unsplash.com/photo-1543092587-d8b8feaf4f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGlhbW9uZCUyMGNoZXNzJTIwc2V0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 30,
+        title: "Personal Volcano",
+        price: 500000000,
+        description: "Private dormant volcano in Hawaii with luxury villa inside crater",
+        image: "https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dm9sY2FubyUyMGhhd2FpaXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 31,
+        title: "Solid Gold Monopoly Set",
+        price: 2000000,
+        description: "Complete Monopoly game with gold and diamond playing pieces",
+        image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29sZCUyMG1vbm9wb2x5JTIwc2V0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 32,
+        title: "Dinosaur Skeleton",
+        price: 31400000,
+        description: "Complete Tyrannosaurus Rex skeleton for your mansion entrance",
+        image: "https://images.unsplash.com/photo-1574786577750-3c97a12a8eb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHlyYW5ub3NhdXJ1cyUyMHJleHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+        id: 33,
+        title: "Platinum Credit Card",
+        price: 1500000,
+        description: "American Express Centurion Card with $1M annual fee",
+        image: "https://images.unsplash.com/photo-1633886891344-27b8a73963c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGxhdGludW0lMjBjcmVkaXQlMjBjYXJkfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
     }
-    </script>
-    
-    <!-- Image Optimization -->
-    <script>
-        // Lazy load images for better performance
-        document.addEventListener("DOMContentLoaded", function() {
-            const lazyImages = document.querySelectorAll(".item-image");
-            
-            if ("IntersectionObserver" in window) {
-                let imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-                            imageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-                
-                lazyImages.forEach(function(lazyImage) {
-                    imageObserver.observe(lazyImage);
-                });
-            } else {
-                // Fallback for browsers that don't support IntersectionObserver
-                let lazyImagesFallback = function() {
-                    let scrollTop = window.pageYOffset;
-                    lazyImages.forEach(function(lazyImage) {
-                        if (lazyImage.offsetTop < (window.innerHeight + scrollTop)) {
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-                        }
-                    });
-                    if (lazyImages.length == 0) { 
-                        document.removeEventListener("scroll", lazyImagesFallback);
-                        window.removeEventListener("resize", lazyImagesFallback);
-                        window.removeEventListener("orientationChange", lazyImagesFallback);
-                    }
-                };
-                
-                document.addEventListener("scroll", lazyImagesFallback);
-                window.addEventListener("resize", lazyImagesFallback);
-                window.addEventListener("orientationChange", lazyImagesFallback);
-            }
-        });
-    </script>
-    
-    <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Header Styles */
-        header {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-            color: #fff;
-            padding: 1.5rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
-        
-        .site-title {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #e0c991);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .money-counter {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #e0c991;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .money-counter.shake {
-            animation: shake 0.5s ease-in-out;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        
-        /* Main Content Area */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-        }
-        
-        /* Items Grid */
-        .items-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .item-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .item-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        /* Image Handling Improvements */
-        .item-image {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-            transition: transform 0.3s ease;
-        }
-        
-        .item-card:hover .item-image {
-            transform: scale(1.05);
-        }
-        
-        .lazy {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-        
-        .lazy.loaded {
-            opacity: 1;
-        }
-        
-        /* Image loading animation */
-        .item-image:not(.loaded)::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        .item-info {
-            padding: 1.5rem;
-        }
-        
-        .item-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .item-description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            height: 40px;
-            overflow: hidden;
-        }
-        
-        .item-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #e0c991;
-            margin-bottom: 1rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .item-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .quantity-display {
-            width: 80px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        button {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .buy-btn {
-            background-color: #1a1a1a;
-            color: #e0c991;
-        }
-        
-        .buy-btn:hover {
-            background-color: #000;
-            transform: translateY(-2px);
-        }
-        
-        .sell-btn {
-            background-color: #f1f1f1;
-            color: #999;
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .sell-btn.active {
-            background-color: #e0c991;
-            color: #1a1a1a;
-            opacity: 1;
-            cursor: pointer;
-        }
-        
-        .sell-btn.active:hover {
-            background-color: #d4bd83;
-            transform: translateY(-2px);
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            height: fit-content;
-            position: sticky;
-            top: 120px;
-        }
-        
-        .sidebar-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0c991;
-        }
-        
-        .sidebar-content {
-            margin-bottom: 2rem;
-        }
-        
-        .sidebar-content p {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .sidebar-ad {
-            width: 100%;
-            height: 250px;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #999;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            border: 1px dashed #ddd;
-        }
-        
-        /* Ad Spaces */
-        .ad-container {
-            width: 100%;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .ad-banner {
-            width: 728px;
-            height: 90px;
-            max-width: 100%;
-            margin: 0 auto;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #999;
-            font-size: 0.9rem;
-            border: 1px dashed #ddd;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 3rem 1rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #e0c991;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-        
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #e0c991;
-        }
-        
-        .footer-bottom {
-            margin-top: 2rem;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* Social Share Buttons */
-        .social-share {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .social-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #333;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-3px);
-        }
-        
-        .facebook { background: #3b5998; }
-        .twitter { background: #1da1f2; }
-        .pinterest { background: #bd081c; }
-        .linkedin { background: #0077b5; }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 1024px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                position: static;
-                margin-bottom: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .site-title {
-                font-size: 1.5rem;
-            }
-            
-            .money-counter {
-                font-size: 2rem;
-            }
-            
-            .items-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .ad-banner {
-                height: 60px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .site-title {
-                font-size: 1.2rem;
-            }
-            
-            .money-counter {
-                font-size: 1.8rem;
-            }
-            
-            .items-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .item-controls {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-            
-            button {
-                width: 100%;
-            }
-            
-            .quantity-display {
-                margin: 0.5rem 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header with Money Counter -->
-    <header>
-        <h1 class="site-title">Spend A Luxury Fortune</h1>
-        <div id="moneyCounter" class="money-counter">$10,000,000,000</div>
-        
-        <!-- Header Ad Space -->
-        <div class="ad-container">
-            <div class="ad-banner">
-                <!-- Google AdSense Ad Unit -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
-                <!-- Header Banner Ad -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                     data-ad-slot="HEADER_AD_SLOT_ID"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-    </header>
-    
-    <main>
-        <div class="items-container" id="itemsContainer">
-            <!-- Luxury items will be dynamically inserted here via JavaScript -->
-        </div>
-        
-        <div class="sidebar">
-            <h2 class="sidebar-title">Your Luxury Journey</h2>
-            <div class="sidebar-content">
-                <p>Imagine having $10 billion to spend only on luxury items and experiences. What would you choose?</p>
-                <p>Buy items by clicking the purchase buttons and track your remaining fortune at the top of the page.</p>
-                <p>Share your spending choices with friends using the social buttons below!</p>
-                
-                <!-- Social Share Buttons -->
-                <div class="social-share">
-                    <a href="#" class="social-btn facebook" title="Share on Facebook">F</a>
-                    <a href="#" class="social-btn twitter" title="Share on Twitter">T</a>
-                    <a href="#" class="social-btn pinterest" title="Share on Pinterest">P</a>
-                    <a href="#" class="social-btn linkedin" title="Share on LinkedIn">L</a>
-                </div>
-            </div>
-            
-            <!-- Sidebar Ad Space -->
-            <div class="sidebar-ad">
-                <!-- Google AdSense Ad Unit -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
-                <!-- Sidebar Ad -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                     data-ad-slot="SIDEBAR_AD_SLOT_ID"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Footer Ad Space -->
-    <div class="ad-container">
-        <div class="ad-banner">
-            <!-- Google AdSense Ad Unit -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
-            <!-- Footer Banner Ad -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                 data-ad-slot="FOOTER_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>
-    
-    <footer>
-        <div class="footer-content">
-            <h2 class="footer-title">Spend A Luxury Fortune</h2>
-            <p>Experience the thrill of spending billions on luxury items without the actual cost.</p>
-            
-            <div class="footer-links">
-                <a href="#">About</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
-                <a href="#">FAQ</a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Spend A Luxury Fortune. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Initial balance
-        const initialBalance = 10000000000; // $10 billion
-        let currentBalance = initialBalance;
-        
-        // Format number as currency
-        function formatMoney(amount) {
-            return '$' + amount.toLocaleString('en-US');
-        }
-        
-        // Update the money counter display
-        function updateMoneyCounter() {
-            const moneyCounter = document.getElementById('moneyCounter');
-            moneyCounter.innerText = formatMoney(currentBalance);
-            
-            // Add a shake animation effect
-            moneyCounter.classList.add('shake');
-            setTimeout(() => {
-                moneyCounter.classList.remove('shake');
-            }, 500);
-        }
-        
-        // Luxury items data with high-quality images
-        const luxuryItems = [
-            {
-                id: 1,
-                name: "Private Island",
-                description: "Own your personal paradise in the Caribbean.",
-                price: 45000000,
-                image: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 2,
-                name: "Superyacht",
-                description: "150-meter luxury yacht with helipad and submarine.",
-                price: 275000000,
-                image: "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 3,
-                name: "Private Jet (G650)",
-                description: "Ultra-long-range business jet with luxury cabin.",
-                price: 65000000,
-                image: "https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 4,
-                name: "Bugatti La Voiture Noire",
-                description: "One of the most expensive production cars ever made.",
-                price: 18500000,
-                image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 5,
-                name: "Mansion in Beverly Hills",
-                description: "Luxury estate with 12 bedrooms and 24 bathrooms.",
-                price: 125000000,
-                image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 6,
-                name: "Luxury Penthouse in NYC",
-                description: "Spectacular views from this 10,000 sq ft penthouse.",
-                price: 95000000,
-                image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 7,
-                name: "Private Concert",
-                description: "Your favorite artist performs just for you and friends.",
-                price: 5000000,
-                image: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 8,
-                name: "Patek Philippe Grand Complication",
-                description: "Masterpiece of watchmaking with perpetual calendar.",
-                price: 2500000,
-                image: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 9,
-                name: "Blue Diamond Ring",
-                description: "10-carat flawless blue diamond in platinum setting.",
-                price: 32000000,
-                image: "https://images.pexels.com/photos/1457801/pexels-photo-1457801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 10,
-                name: "Private Island Resort",
-                description: "Build your own luxury resort on a private island.",
-                price: 165000000,
-                image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 11,
-                name: "Helicopter",
-                description: "Luxury private helicopter for quick transportation.",
-                price: 15000000,
-                image: "https://images.pexels.com/photos/11263347/pexels-photo-11263347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 12,
-                name: "Submarine",
-                description: "Personal submarine for underwater exploration.",
-                price: 60000000,
-                image: "https://images.pexels.com/photos/18512928/pexels-photo-18512928/free-photo-of-sea-flight-landscape-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 13,
-                name: "Fine Art Collection",
-                description: "Collection of masterpieces from renowned artists.",
-                price: 450000000,
-                image: "https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 14,
-                name: "Vineyard Estate",
-                description: "Luxury wine estate in Napa Valley with mansion.",
-                price: 85000000,
-                image: "https://images.pexels.com/photos/442116/pexels-photo-442116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 15,
-                name: "Private Safari Lodge",
-                description: "Exclusive safari lodge in Africa with private reserve.",
-                price: 35000000,
-                image: "https://images.pexels.com/photos/4711871/pexels-photo-4711871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 16,
-                name: "Space Tourism Trip",
-                description: "Be among the first civilians to travel to space.",
-                price: 55000000,
-                image: "https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 17,
-                name: "Formula 1 Racing Team",
-                description: "Own your own Formula 1 racing team.",
-                price: 700000000,
-                image: "https://images.pexels.com/photos/12801/pexels-photo-12801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 18,
-                name: "Professional Sports Team",
-                description: "Own a major league professional sports franchise.",
-                price: 2200000000,
-                image: "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 19,
-                name: "Hollywood Movie Production",
-                description: "Fund and produce a blockbuster Hollywood film.",
-                price: 200000000,
-                image: "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                id: 20,
-                name: "Private Museum",
-                description: "Build your own museum to showcase collections.",
-                price: 350000000,
-                image: "https://images.pexels.com/photos/1870438/pexels-photo-1870438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
-        ];
-        
-        // Track quantities for each item
-        const itemQuantities = {};
-        luxuryItems.forEach(item => {
-            itemQuantities[item.id] = 0;
-        });
-        
-        // Create item cards and add to container
-        function createItemCards() {
-            const container = document.getElementById('item
+];
