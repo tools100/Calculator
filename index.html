@@ -1,689 +1,816 @@
+# Complete Luxury Fortune Spending Website Code
+
+Here's the complete, combined code for your luxury spending website with all the improvements, including high-quality product images, SEO optimization, and Google AdSense integration:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Online Calculator | Fast, Accurate & Free Calculation Tool</title>
-    <meta name="description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use. Mobile-friendly with history feature.">
-    <meta name="keywords" content="calculator, online calculator, free calculator, math calculator, scientific calculator, percentage calculator, calculation tool, web calculator">
+    <title>Spend A Luxury Fortune - Interactive Money Spending Simulator</title>
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://yourcalculatorwebsite.com">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Experience what it's like to spend $10 billion on luxury items. Interactive spending simulator with high-end luxury products and experiences.">
+    <meta name="keywords" content="luxury spending, billionaire simulator, spend money game, luxury items, interactive game, wealth simulator">
+    <meta name="author" content="Your Name">
     
-    <!-- Open Graph / Facebook Meta Tags -->
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Spend A Luxury Fortune - Interactive Money Spending Simulator">
+    <meta property="og:description" content="Experience what it's like to spend $10 billion on luxury items. Interactive spending simulator.">
+    <meta property="og:image" content="images/luxury-preview.jpg">
+    <meta property="og:url" content="https://yourdomain.com/spend-luxury">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourcalculatorwebsite.com/">
-    <meta property="og:title" content="Premium Online Calculator | Fast, Accurate & Free">
-    <meta property="og:description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use.">
-    <meta property="og:image" content="https://yourcalculatorwebsite.com/images/calculator-social-preview.jpg">
     
-    <!-- Twitter Meta Tags -->
+    <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Premium Online Calculator | Fast, Accurate & Free">
-    <meta name="twitter:description" content="Free advanced online calculator with scientific functions. Perfect for students, professionals & everyday use.">
-    <meta name="twitter:image" content="https://yourcalculatorwebsite.com/images/calculator-social-preview.jpg">
+    <meta name="twitter:title" content="Spend A Luxury Fortune">
+    <meta name="twitter:description" content="Experience what it's like to spend $10 billion on luxury items.">
+    <meta name="twitter:image" content="images/luxury-preview.jpg">
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     
-    <!-- Structured Data -->
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Premium Online Calculator",
-      "url": "https://yourcalculatorwebsite.com",
-      "description": "Free advanced online calculator with scientific functions for all your calculation needs.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
+      "name": "Spend A Luxury Fortune",
+      "description": "Interactive simulator that lets you experience spending $10 billion on luxury items and experiences",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web Browser",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "872"
       }
     }
     </script>
     
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <!-- Image SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Private Island",
+            "image": "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "description": "Own your personal paradise in the Caribbean.",
+            "offers": {
+              "@type": "Offer",
+              "price": "45000000",
+              "priceCurrency": "USD"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Superyacht",
+            "image": "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "description": "150-meter luxury yacht with helipad and submarine.",
+            "offers": {
+              "@type": "Offer",
+              "price": "275000000",
+              "priceCurrency": "USD"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Image Optimization -->
+    <script>
+        // Lazy load images for better performance
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll(".item-image");
+            
+            if ("IntersectionObserver" in window) {
+                let imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            imageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    imageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                let lazyImagesFallback = function() {
+                    let scrollTop = window.pageYOffset;
+                    lazyImages.forEach(function(lazyImage) {
+                        if (lazyImage.offsetTop < (window.innerHeight + scrollTop)) {
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                        }
+                    });
+                    if (lazyImages.length == 0) { 
+                        document.removeEventListener("scroll", lazyImagesFallback);
+                        window.removeEventListener("resize", lazyImagesFallback);
+                        window.removeEventListener("orientationChange", lazyImagesFallback);
+                    }
+                };
+                
+                document.addEventListener("scroll", lazyImagesFallback);
+                window.addEventListener("resize", lazyImagesFallback);
+                window.addEventListener("orientationChange", lazyImagesFallback);
+            }
+        });
+    </script>
     
     <style>
-        /* Critical CSS (Above-the-fold styles) */
-        :root {
-            --primary: #4a6bff;
-            --primary-dark: #3a56cc;
-            --secondary: #00c9a7;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --dark-gray: #334155;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
+        /* CSS Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.5;
-            color: var(--dark);
-            background-color: var(--light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
         }
         
+        /* Header Styles */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 50;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .main {
-            flex: 1;
-            padding: 2rem 0;
-        }
-        
-        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: #fff;
+            padding: 1.5rem 0;
             text-align: center;
-            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 100;
         }
         
-        h1 {
+        .site-title {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #e0c991);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .money-counter {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            line-height: 1.2;
+            font-weight: 700;
+            color: #e0c991;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
         
-        .calculator-container {
-            display: flex;
-            flex-wrap: wrap;
+        .money-counter.shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Main Content Area */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
             gap: 2rem;
-            justify-content: center;
         }
         
-        .calculator {
+        /* Items Grid */
+        .items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .item-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Image Handling Improvements */
+        .item-image {
+            height: 200px;
             width: 100%;
-            max-width: 400px;
-            background: white;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+        
+        .item-card:hover .item-image {
+            transform: scale(1.05);
+        }
+        
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        .lazy.loaded {
+            opacity: 1;
+        }
+        
+        /* Image loading animation */
+        .item-image:not(.loaded)::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .item-info {
+            padding: 1.5rem;
+        }
+        
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .item-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            height: 40px;
             overflow: hidden;
         }
         
-        .calculator-screen {
-            background: var(--dark);
-            color: white;
-            padding: 1.5rem;
-            text-align: right;
-            font-size: 2rem;
-            min-height: 120px;
+        .item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e0c991;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .item-controls {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .calculator-history {
-            font-size: 1rem;
-            opacity: 0.7;
-            min-height: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-        }
-        
-        .calculator-result {
-            word-wrap: break-word;
-            font-size: 2.5rem;
-            font-weight: 300;
-        }
-        
-        .calculator-keys {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: #e2e8f0;
-        }
-        
-        .calculator-keys button {
-            border: none;
-            outline: none;
-            padding: 1.25rem;
-            font-size: 1.25rem;
-            cursor: pointer;
-            background: white;
-            transition: var(--transition);
-        }
-        
-        .operator {
-            background: #f1f5f9 !important;
+        .quantity-display {
+            width: 80px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
             font-weight: 600;
+            color: #333;
         }
         
-        .equal {
-            background: var(--primary) !important;
-            color: white;
-            grid-column: span 2;
+        button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
         
-        .equal:hover {
-            background: var(--primary-dark) !important;
+        .buy-btn {
+            background-color: #1a1a1a;
+            color: #e0c991;
         }
         
-        .clear, .delete {
-            background: #ef4444 !important;
-            color: white;
+        .buy-btn:hover {
+            background-color: #000;
+            transform: translateY(-2px);
         }
         
-        /* Load remaining CSS asynchronously */
+        .sell-btn {
+            background-color: #f1f1f1;
+            color: #999;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .sell-btn.active {
+            background-color: #e0c991;
+            color: #1a1a1a;
+            opacity: 1;
+            cursor: pointer;
+        }
+        
+        .sell-btn.active:hover {
+            background-color: #d4bd83;
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0c991;
+        }
+        
+        .sidebar-content {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-content p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .sidebar-ad {
+            width: 100%;
+            height: 250px;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            border: 1px dashed #ddd;
+        }
+        
+        /* Ad Spaces */
+        .ad-container {
+            width: 100%;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .ad-banner {
+            width: 728px;
+            height: 90px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 0.9rem;
+            border: 1px dashed #ddd;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e0c991;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #e0c991;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Social Share Buttons */
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .facebook { background: #3b5998; }
+        .twitter { background: #1da1f2; }
+        .pinterest { background: #bd081c; }
+        .linkedin { background: #0077b5; }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 1.5rem;
+            }
+            
+            .money-counter {
+                font-size: 2rem;
+            }
+            
+            .items-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .ad-banner {
+                height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.2rem;
+            }
+            
+            .money-counter {
+                font-size: 1.8rem;
+            }
+            
+            .items-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .item-controls {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .quantity-display {
+                margin: 0.5rem 0;
+            }
+        }
     </style>
-    
-    <!-- Preconnect to important third-party origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    
-    <!-- Non-critical CSS loaded after page load -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    
-    <!-- Google Analytics (Optional) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
+    <!-- Header with Money Counter -->
     <header>
-        <div class="container header-content">
-            <a href="/" class="logo" aria-label="Premium Calculator Home">
-                <i class="fas fa-calculator"></i>
-                <span>PremiumCalc</span>
-            </a>
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="/" aria-current="page">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/privacy-policy">Privacy</a></li>
-                    <li><a href="/terms">Terms</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
+        <h1 class="site-title">Spend A Luxury Fortune</h1>
+        <div id="moneyCounter" class="money-counter">$10,000,000,000</div>
+        
+        <!-- Header Ad Space -->
+        <div class="ad-container">
+            <div class="ad-banner">
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+                <!-- Header Banner Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="HEADER_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
     </header>
     
-    <main class="main">
-        <div class="container">
-            <div class="hero">
-                <h1>The Most Advanced Free Online Calculator</h1>
-                <p>Perform basic and scientific calculations with our fast, accurate calculator that works on any device.</p>
-            </div>
-            
-            <div class="calculator-container">
-                <div class="calculator" role="application" aria-label="Calculator">
-                    <div class="calculator-screen">
-                        <div class="calculator-history" id="history" aria-live="polite"></div>
-                        <div class="calculator-result" id="result" aria-live="polite">0</div>
-                    </div>
-                    <div class="calculator-keys">
-                        <button class="operator" onclick="appendValue('+')" aria-label="Add">+</button>
-                        <button class="operator" onclick="appendValue('-')" aria-label="Subtract">-</button>
-                        <button class="operator" onclick="appendValue('*')" aria-label="Multiply">×</button>
-                        <button class="operator" onclick="appendValue('/')" aria-label="Divide">÷</button>
-                        
-                        <button onclick="appendValue('7')" aria-label="Seven">7</button>
-                        <button onclick="appendValue('8')" aria-label="Eight">8</button>
-                        <button onclick="appendValue('9')" aria-label="Nine">9</button>
-                        <button class="clear" onclick="clearScreen()" aria-label="All Clear">AC</button>
-                        
-                        <button onclick="appendValue('4')" aria-label="Four">4</button>
-                        <button onclick="appendValue('5')" aria-label="Five">5</button>
-                        <button onclick="appendValue('6')" aria-label="Six">6</button>
-                        <button class="delete" onclick="deleteLastChar()" aria-label="Delete">DEL</button>
-                        
-                        <button onclick="appendValue('1')" aria-label="One">1</button>
-                        <button onclick="appendValue('2')" aria-label="Two">2</button>
-                        <button onclick="appendValue('3')" aria-label="Three">3</button>
-                        <button class="operator" onclick="appendValue('(')" aria-label="Open Parenthesis">(</button>
-                        
-                        <button onclick="appendValue('0')" aria-label="Zero">0</button>
-                        <button onclick="appendValue('.')" aria-label="Decimal Point">.</button>
-                        <button class="operator" onclick="appendValue(')')" aria-label="Close Parenthesis">)</button>
-                        <button class="equal" onclick="calculate()" aria-label="Equals">=</button>
-                    </div>
-                </div>
+    <main>
+        <div class="items-container" id="itemsContainer">
+            <!-- Luxury items will be dynamically inserted here via JavaScript -->
+        </div>
+        
+        <div class="sidebar">
+            <h2 class="sidebar-title">Your Luxury Journey</h2>
+            <div class="sidebar-content">
+                <p>Imagine having $10 billion to spend only on luxury items and experiences. What would you choose?</p>
+                <p>Buy items by clicking the purchase buttons and track your remaining fortune at the top of the page.</p>
+                <p>Share your spending choices with friends using the social buttons below!</p>
                 
-                <div class="sidebar">
-                    <div class="ad-container">
-                        <p>Advertisement</p>
-                        <div class="ad-placeholder">
-                            <!-- Google AdSense -->
-                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
-                            <ins class="adsbygoogle"
-                                style="display:block"
-                                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                                data-ad-slot="YOUR_AD_SLOT_ID"
-                                data-ad-format="auto"
-                                data-full-width-responsive="true"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                        </div>
-                    </div>
-                    
-                    <div class="features">
-                        <h2>Calculator Features</h2>
-                        <ul>
-                            <li>Basic arithmetic operations (add, subtract, multiply, divide)</li>
-                            <li>Parentheses for complex calculations</li>
-                            <li>Clear and delete functions</li>
-                            <li>Calculation history tracking</li>
-                            <li>Fully accessible keyboard support</li>
-                            <li>Works on all devices</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="ad-container">
-                        <p>Advertisement</p>
-                        <div class="ad-placeholder">
-                            <!-- Second Ad Slot -->
-                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
-                            <ins class="adsbygoogle"
-                                style="display:block"
-                                data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                                data-ad-slot="YOUR_AD_SLOT_ID_2"
-                                data-ad-format="auto"
-                                data-full-width-responsive="true"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                        </div>
-                    </div>
+                <!-- Social Share Buttons -->
+                <div class="social-share">
+                    <a href="#" class="social-btn facebook" title="Share on Facebook">F</a>
+                    <a href="#" class="social-btn twitter" title="Share on Twitter">T</a>
+                    <a href="#" class="social-btn pinterest" title="Share on Pinterest">P</a>
+                    <a href="#" class="social-btn linkedin" title="Share on LinkedIn">L</a>
                 </div>
             </div>
             
-            <!-- SEO Content Section -->
-            <section class="seo-content">
-                <h2>Free Online Calculator Tool</h2>
-                <p>Our <strong>free online calculator</strong> provides a convenient way to perform all your mathematical calculations. Whether you're a student working on homework, a professional needing quick calculations, or just someone who needs to do some everyday math, our calculator is designed to be simple yet powerful enough for all your needs.</p>
-                
-                <h3>Why Use Our Web Calculator?</h3>
-                <p>Unlike basic calculator apps, our tool offers a clean interface with advanced functionality when you need it. The responsive design means it works perfectly on <strong>desktop computers, tablets, and mobile phones</strong>. No installation required - just access it from any web browser.</p>
-                
-                <h3>Calculator Functions</h3>
-                <p>The calculator supports all basic arithmetic operations including <strong>addition, subtraction, multiplication, and division</strong>. You can use parentheses to structure more complex calculations, and the clear functions let you easily correct any mistakes. The calculation history helps you keep track of your work.</p>
-                
-                <h3>Mobile-Friendly Calculator</h3>
-                <p>Our calculator is optimized for mobile devices, with large buttons that are easy to tap and a display that adjusts to your screen size. Whether you're using an <strong>iPhone, Android phone, or tablet</strong>, you'll get the same great experience.</p>
-            </section>
-            
-            <div class="ad-container">
-                <p>Advertisement</p>
-                <div class="ad-placeholder">
-                    <!-- Bottom Ad Slot -->
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-                        data-ad-slot="YOUR_AD_SLOT_ID_3"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
+            <!-- Sidebar Ad Space -->
+            <div class="sidebar-ad">
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+                <!-- Sidebar Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="SIDEBAR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </main>
     
+    <!-- Footer Ad Space -->
+    <div class="ad-container">
+        <div class="ad-banner">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+            <!-- Footer Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="FOOTER_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>PremiumCalc</h3>
-                    <p>Your free online calculation tool for everyday use. Fast, accurate, and accessible from any device.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li><a href="/">Basic Calculator</a></li>
-                        <li><a href="/scientific">Scientific Calculator</a></li>
-                        <li><a href="/financial">Financial Calculator</a></li>
-                        <li><a href="/bmi">BMI Calculator</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <h2 class="footer-title">Spend A Luxury Fortune</h2>
+            <p>Experience the thrill of spending billions on luxury items without the actual cost.</p>
+            
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span id="year"></span> PremiumCalc. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spend A Luxury Fortune. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Deferred JavaScript -->
+    
     <script>
-        // Calculator functionality
-        let currentInput = '0';
-        let calculationHistory = '';
+        // Initial balance
+        const initialBalance = 10000000000; // $10 billion
+        let currentBalance = initialBalance;
         
-        function updateScreen() {
-            document.getElementById('result').innerText = currentInput;
-            document.getElementById('history').innerText = calculationHistory;
+        // Format number as currency
+        function formatMoney(amount) {
+            return '$' + amount.toLocaleString('en-US');
         }
         
-        function appendValue(value) {
-            if (currentInput === '0' && value !== '.') {
-                currentInput = value;
-            } else {
-                currentInput += value;
-            }
-            updateScreen();
-        }
-        
-        function clearScreen() {
-            currentInput = '0';
-            calculationHistory = '';
-            updateScreen();
-        }
-        
-        function deleteLastChar() {
-            if (currentInput.length > 1) {
-                currentInput = currentInput.slice(0, -1);
-            } else {
-                currentInput = '0';
-            }
-            updateScreen();
-        }
-        
-        function calculate() {
-            try {
-                calculationHistory = currentInput + ' =';
-                currentInput = currentInput.replace(/×/g, '*').replace(/÷/g, '/');
-                currentInput = eval(currentInput).toString();
-                updateScreen();
-            } catch (error) {
-                currentInput = 'Error';
-                updateScreen();
-                setTimeout(clearScreen, 1500);
-            }
-        }
-        
-        // Keyboard support
-        document.addEventListener('keydown', function(e) {
-            const key = e.key;
+        // Update the money counter display
+        function updateMoneyCounter() {
+            const moneyCounter = document.getElementById('moneyCounter');
+            moneyCounter.innerText = formatMoney(currentBalance);
             
-            if (/[0-9.]/.test(key)) {
-                appendValue(key);
-            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
-                appendValue(key);
-            } else if (key === '(' || key === ')') {
-                appendValue(key);
-            } else if (key === 'Enter' || key === '=') {
-                calculate();
-            } else if (key === 'Backspace') {
-                deleteLastChar();
-            } else if (key === 'Escape') {
-                clearScreen();
+            // Add a shake animation effect
+            moneyCounter.classList.add('shake');
+            setTimeout(() => {
+                moneyCounter.classList.remove('shake');
+            }, 500);
+        }
+        
+        // Luxury items data with high-quality images
+        const luxuryItems = [
+            {
+                id: 1,
+                name: "Private Island",
+                description: "Own your personal paradise in the Caribbean.",
+                price: 45000000,
+                image: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 2,
+                name: "Superyacht",
+                description: "150-meter luxury yacht with helipad and submarine.",
+                price: 275000000,
+                image: "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 3,
+                name: "Private Jet (G650)",
+                description: "Ultra-long-range business jet with luxury cabin.",
+                price: 65000000,
+                image: "https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 4,
+                name: "Bugatti La Voiture Noire",
+                description: "One of the most expensive production cars ever made.",
+                price: 18500000,
+                image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 5,
+                name: "Mansion in Beverly Hills",
+                description: "Luxury estate with 12 bedrooms and 24 bathrooms.",
+                price: 125000000,
+                image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 6,
+                name: "Luxury Penthouse in NYC",
+                description: "Spectacular views from this 10,000 sq ft penthouse.",
+                price: 95000000,
+                image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 7,
+                name: "Private Concert",
+                description: "Your favorite artist performs just for you and friends.",
+                price: 5000000,
+                image: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 8,
+                name: "Patek Philippe Grand Complication",
+                description: "Masterpiece of watchmaking with perpetual calendar.",
+                price: 2500000,
+                image: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 9,
+                name: "Blue Diamond Ring",
+                description: "10-carat flawless blue diamond in platinum setting.",
+                price: 32000000,
+                image: "https://images.pexels.com/photos/1457801/pexels-photo-1457801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 10,
+                name: "Private Island Resort",
+                description: "Build your own luxury resort on a private island.",
+                price: 165000000,
+                image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 11,
+                name: "Helicopter",
+                description: "Luxury private helicopter for quick transportation.",
+                price: 15000000,
+                image: "https://images.pexels.com/photos/11263347/pexels-photo-11263347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 12,
+                name: "Submarine",
+                description: "Personal submarine for underwater exploration.",
+                price: 60000000,
+                image: "https://images.pexels.com/photos/18512928/pexels-photo-18512928/free-photo-of-sea-flight-landscape-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 13,
+                name: "Fine Art Collection",
+                description: "Collection of masterpieces from renowned artists.",
+                price: 450000000,
+                image: "https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 14,
+                name: "Vineyard Estate",
+                description: "Luxury wine estate in Napa Valley with mansion.",
+                price: 85000000,
+                image: "https://images.pexels.com/photos/442116/pexels-photo-442116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 15,
+                name: "Private Safari Lodge",
+                description: "Exclusive safari lodge in Africa with private reserve.",
+                price: 35000000,
+                image: "https://images.pexels.com/photos/4711871/pexels-photo-4711871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 16,
+                name: "Space Tourism Trip",
+                description: "Be among the first civilians to travel to space.",
+                price: 55000000,
+                image: "https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 17,
+                name: "Formula 1 Racing Team",
+                description: "Own your own Formula 1 racing team.",
+                price: 700000000,
+                image: "https://images.pexels.com/photos/12801/pexels-photo-12801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 18,
+                name: "Professional Sports Team",
+                description: "Own a major league professional sports franchise.",
+                price: 2200000000,
+                image: "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 19,
+                name: "Hollywood Movie Production",
+                description: "Fund and produce a blockbuster Hollywood film.",
+                price: 200000000,
+                image: "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                id: 20,
+                name: "Private Museum",
+                description: "Build your own museum to showcase collections.",
+                price: 350000000,
+                image: "https://images.pexels.com/photos/1870438/pexels-photo-1870438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             }
+        ];
+        
+        // Track quantities for each item
+        const itemQuantities = {};
+        luxuryItems.forEach(item => {
+            itemQuantities[item.id] = 0;
         });
         
-        // Update copyright year
-        document.getElementById('year').innerText = new Date().getFullYear();
-        
-        // Load remaining styles non-blocking
-        const loadStyles = () => {
-            const style = document.createElement('style');
-            style.textContent = `
-                .sidebar {
-                    flex: 0 0 350px;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1.5rem;
-                }
-                
-                .ad-container {
-                    background: white;
-                    border-radius: 0.75rem;
-                    box-shadow: var(--shadow);
-                    padding: 1.5rem;
-                    text-align: center;
-                    min-height: 250px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                }
-                
-                .ad-container p {
-                    color: var(--dark-gray);
-                    margin-bottom: 1rem;
-                    font-weight: 500;
-                }
-                
-                .ad-placeholder {
-                    width: 100%;
-                    height: 100%;
-                    background: #f1f5f9;
-                    border-radius: 0.5rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: var(--gray);
-                }
-                
-                .features {
-                    background: white;
-                    border-radius: 0.75rem;
-                    box-shadow: var(--shadow);
-                    padding: 1.5rem;
-                }
-                
-                .features h2 {
-                    font-size: 1.25rem;
-                    margin-bottom: 1rem;
-                    color: var(--primary);
-                }
-                
-                .features ul {
-                    list-style: none;
-                }
-                
-                .features li {
-                    margin-bottom: 0.75rem;
-                    padding-left: 1.5rem;
-                    position: relative;
-                }
-                
-                .features li::before {
-                    content: '•';
-                    position: absolute;
-                    left: 0;
-                    color: var(--secondary);
-                }
-                
-                .seo-content {
-                    margin: 3rem 0;
-                }
-                
-                .seo-content h2 {
-                    font-size: 1.75rem;
-                    margin: 2rem 0 1rem;
-                    color: var(--primary);
-                }
-                
-                .seo-content h3 {
-                    font-size: 1.5rem;
-                    margin: 1.5rem 0 0.75rem;
-                    color: var(--primary-dark);
-                }
-                
-                .seo-content p {
-                    margin-bottom: 1rem;
-                    line-height: 1.7;
-                }
-                
-                .footer-content {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 3rem;
-                    padding: 3rem 0;
-                }
-                
-                .footer-section {
-                    flex: 1;
-                    min-width: 200px;
-                }
-                
-                .footer-section h3 {
-                    font-size: 1.25rem;
-                    margin-bottom: 1.25rem;
-                    color: white;
-                }
-                
-                .footer-section ul {
-                    list-style: none;
-                }
-                
-                .footer-section li {
-                    margin-bottom: 0.75rem;
-                }
-                
-                .footer-section a {
-                    color: var(--gray);
-                    text-decoration: none;
-                    transition: var(--transition);
-                }
-                
-                .footer-section a:hover {
-                    color: white;
-                }
-                
-                .copyright {
-                    text-align: center;
-                    padding: 1.5rem 0;
-                    border-top: 1px solid var(--dark-gray);
-                    color: var(--gray);
-                }
-                
-                @media (max-width: 1024px) {
-                    .sidebar {
-                        flex: 1;
-                        max-width: 100%;
-                    }
-                }
-                
-                @media (max-width: 768px) {
-                    .header-content {
-                        flex-direction: column;
-                        gap: 1rem;
-                    }
-                    
-                    nav ul {
-                        flex-wrap: wrap;
-                        justify-content: center;
-                    }
-                    
-                    .calculator-keys button {
-                        padding: 1rem;
-                    }
-                    
-                    .hero h1 {
-                        font-size: 2rem;
-                    }
-                }
-                
-                @media (max-width: 480px) {
-                    .container {
-                        padding: 0 1rem;
-                    }
-                    
-                    .calculator-screen {
-                        padding: 1rem;
-                        min-height: 100px;
-                    }
-                    
-                    .calculator-result {
-                        font-size: 2rem;
-                    }
-                    
-                    .hero h1 {
-                        font-size: 1.75rem;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-        };
-        
-        if (document.readyState === 'complete') {
-            loadStyles();
-        } else {
-            window.addEventListener('load', loadStyles);
-        }
-    </script>
-</body>
-</html>
+        // Create item cards and add to container
+        function createItemCards() {
+            const container = document.getElementById('item
